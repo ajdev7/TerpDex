@@ -17,11 +17,13 @@ object APIService {
 
     val okHttpClient = OkHttpClient.Builder()
         .addInterceptor(interceptor)
+        .cache(null)
         .build()
 
     public val retrofit = Retrofit.Builder()
-        .baseUrl("https://ajdev7.github.io/TerpDex-Media/")
+//        .baseUrl("https://ajdev7.github.io/TerpDex-Media/")
+        .baseUrl("https://raw.githubusercontent.com/ajdev7/TerpDex-Media/main/")
         .addConverterFactory(GsonConverterFactory.create())
-//        .client(okHttpClient)
+        .client(okHttpClient)
         .build()
 }

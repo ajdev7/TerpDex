@@ -16,6 +16,8 @@ class TerpdexViewModel(private val terpmonDAO: TerpmonDAO, private val terpmonSe
         initNetworkRequest()
     }
 
+    private val mTermponList: MutableList<Terpmon> = mutableListOf();
+
     private fun initNetworkRequest() {
         val call = terpmonService.get()
         call.enqueue(object : Callback<List<Terpmon>?> {
@@ -25,6 +27,7 @@ class TerpdexViewModel(private val terpmonDAO: TerpmonDAO, private val terpmonSe
             ) {
                 response?.body()?.let { terpmons: List<Terpmon> ->
                     thread {
+                        terpmonDAO.deleteAll()
                         terpmonDAO.add(terpmons)
                     }
                 }
