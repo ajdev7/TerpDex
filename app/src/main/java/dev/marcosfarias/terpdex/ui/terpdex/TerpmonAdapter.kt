@@ -26,21 +26,21 @@ class TerpmonAdapter(
             itemView.textViewName.text = item.name
             itemView.textViewID.text = item.id
 
-            val color = TerpmonColorUtil(itemView.context).getTerpmonColor(item.typeofpokemon)
+            val color = TerpmonColorUtil(itemView.context).getTerpmonColor(item.typeofterpmon)
             itemView.relativeLayoutBackground.background.colorFilter =
                 PorterDuffColorFilter(color, PorterDuff.Mode.SRC_ATOP)
 
-            item.typeofpokemon?.getOrNull(0).let { firstType ->
+            item.typeofterpmon?.getOrNull(0).let { firstType ->
                 itemView.textViewType3.text = firstType
                 itemView.textViewType3.isVisible = firstType != null
             }
 
-            item.typeofpokemon?.getOrNull(1).let { secondType ->
+            item.typeofterpmon?.getOrNull(1).let { secondType ->
                 itemView.textViewType2.text = secondType
                 itemView.textViewType2.isVisible = secondType != null
             }
 
-            item.typeofpokemon?.getOrNull(2).let { thirdType ->
+            item.typeofterpmon?.getOrNull(2).let { thirdType ->
                 itemView.textViewType1.text = thirdType
                 itemView.textViewType1.isVisible = thirdType != null
             }

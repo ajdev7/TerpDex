@@ -33,7 +33,7 @@ class Terpmon {
     var special_defense: Int? = null
     var speed: Int? = null
     var total: Int? = null
-    var typeofpokemon: List<String>? = null
+    var typeofterpmon: List<String>? = null
     var weaknesses: List<String>? = null
     var weight: String? = null
     var xdescription: String? = null

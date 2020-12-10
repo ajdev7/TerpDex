@@ -36,25 +36,25 @@ class DashboardFragment : Fragment() {
                 textViewName.text = terpmon.name
 
                 val color =
-                    TerpmonColorUtil(view.context).getTerpmonColor(terpmon.typeofpokemon)
+                    TerpmonColorUtil(view.context).getTerpmonColor(terpmon.typeofterpmon)
                 app_bar.background.colorFilter =
                     PorterDuffColorFilter(color, PorterDuff.Mode.SRC_ATOP)
                 toolbar_layout.contentScrim?.colorFilter =
                     PorterDuffColorFilter(color, PorterDuff.Mode.SRC_ATOP)
                 activity?.window?.statusBarColor =
-                    TerpmonColorUtil(view.context).getTerpmonColor(terpmon.typeofpokemon)
+                    TerpmonColorUtil(view.context).getTerpmonColor(terpmon.typeofterpmon)
 
-                terpmon.typeofpokemon?.getOrNull(0).let { firstType ->
+                terpmon.typeofterpmon?.getOrNull(0).let { firstType ->
                     textViewType3.text = firstType
                     textViewType3.isVisible = firstType != null
                 }
 
-                terpmon.typeofpokemon?.getOrNull(1).let { secondType ->
+                terpmon.typeofterpmon?.getOrNull(1).let { secondType ->
                     textViewType2.text = secondType
                     textViewType2.isVisible = secondType != null
                 }
 
-                terpmon.typeofpokemon?.getOrNull(2).let { thirdType ->
+                terpmon.typeofterpmon?.getOrNull(2).let { thirdType ->
                     textViewType1.text = thirdType
                     textViewType1.isVisible = thirdType != null
                 }

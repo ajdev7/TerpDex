@@ -5,6 +5,6 @@ import retrofit2.Call
 import retrofit2.http.GET
 
 interface TerpmonService {
-    @GET("pokemon.json")
+    @GET("terpmon.json")
     fun get(): Call<List<Terpmon>>
 }

@@ -27,6 +27,10 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
@@ -51,8 +55,11 @@ dependencies {
     implementation("com.leinardi.android:speed-dial:3.1.1")
 
     // Retrofit
-    implementation("com.squareup.retrofit2:retrofit:2.6.0")
-    implementation("com.squareup.retrofit2:converter-gson:2.6.0")
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+
+    //Logging Network Calls
+    implementation("com.squareup.okhttp3:logging-interceptor:4.2.1")
 
     // Persistence
     implementation("android.arch.persistence.room:runtime:1.1.1")

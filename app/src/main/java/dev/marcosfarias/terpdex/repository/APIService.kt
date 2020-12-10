@@ -1,14 +1,27 @@
 package dev.marcosfarias.terpdex.repository
 
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.create
+import java.util.concurrent.TimeUnit
 
 object APIService {
-    private val retrofit = Retrofit.Builder()
-        .baseUrl("https://gist.githubusercontent.com/mrcsxsiq/b94dbe9ab67147b642baa9109ce16e44/raw/97811a5df2df7304b5bc4fbb9ee018a0339b8a38/")
-        .addConverterFactory(GsonConverterFactory.create())
+    private val interceptor = run {
+        val httpLoggingInterceptor = HttpLoggingInterceptor()
+        httpLoggingInterceptor.apply {
+            this.level = HttpLoggingInterceptor.Level.BODY
+        }
+    }
+
+    val okHttpClient = OkHttpClient.Builder()
+        .addInterceptor(interceptor)
         .build()
 
-    val TERPMON_SERVICE: TerpmonService = retrofit.create()
+    public val retrofit = Retrofit.Builder()
+        .baseUrl("https://ajdev7.github.io/TerpDex-Media/")
+        .addConverterFactory(GsonConverterFactory.create())
+//        .client(okHttpClient)
+        .build()
 }
